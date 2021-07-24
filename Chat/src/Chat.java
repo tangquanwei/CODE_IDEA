@@ -1,7 +1,9 @@
 public class Chat {
     public static void main(String[] args) {
-        System.out.println("Tang Quanwei");
-        System.out.println("Tang Quanwei");
+        var server = new DayAdviceServer();
+        server.go();
+        var client = new DayAdviceClient();
+        client.go();
 
     }
 }
