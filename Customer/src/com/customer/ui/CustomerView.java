@@ -12,6 +12,7 @@ import com.customer.bean.Customer;
 import com.customer.service.CustomerList;
 import com.customer.utli.CMUtility;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -24,21 +25,25 @@ import java.util.Comparator;
  */
 public class CustomerView {
     private final CustomerList customerList = new CustomerList(10);
+    ArrayList<Customer> costumes=customerList.getCustomerArrayList();
 
     public void enterMainMenu() {
         lab_while:
         while (true) {
-            System.out.println(
-                    "\n--------客户信息管理系统--------\n" +
-                            "\t0.退出管理系统\n" +
-                            "\t1.添加客户信息\n" +
-                            "\t2.删除客户信息\n" +
-                            "\t3.修改客户信息\n" +
-                            "\t4.查找客户信息\n" +
-                            "\t5.排序客户信息\n" +
-                            "\t6.显示客户信息\n" +
-                            "\n" +
-                            "\t请输入(1-4):");
+
+            System.out.println("""
+                                        
+                    --------客户信息管理系统--------
+                                        
+                    \t0.退出管理系统
+                    \t1.添加客户信息
+                    \t2.删除客户信息
+                    \t3.修改客户信息
+                    \t4.查找客户信息
+                    \t5.排序客户信息
+                    \t6.显示客户信息
+
+                    \t请输入(1-4):""");
             int choice = CMUtility.readMenuSelection();
             switch (choice) {
                 case 0 -> {
@@ -65,6 +70,7 @@ public class CustomerView {
                 case 5 -> {
                     CMUtility.clearScreen();
                     sortCustomer();
+                    showCustomer();
                 }
                 case 6 -> {
                     CMUtility.clearScreen();
@@ -75,6 +81,10 @@ public class CustomerView {
         }
     }
 
+    /**
+     * @return Customer instance
+     * @Description: read user input to construct an instance
+     */
     private Customer subAdd() {
         String id = CMUtility.readString(4);
         System.out.println("名字:");
@@ -100,6 +110,7 @@ public class CustomerView {
 
     private void deleteCustomer() {
         System.out.println("删除客户信息");
+
         int index = findCustomer();
         if (index != -1) {
             System.out.println("确定删除客户信息(Y/N)?");
@@ -122,26 +133,25 @@ public class CustomerView {
 
     private int findCustomer() {
         System.out.print("请输入待查找的客户ID:(-1退出)");
-        int ret = -1;
+        int index = -1;
         String id = CMUtility.readString(4);
         if (!id.equals("-1")) {
-            sortCustomer();
-            Customer[] customers = customerList.getCustomers();
-            int index = CMUtility.binarySearch(customers, 0, customers.length, id);
+            index = costumes.indexOf(new Customer(id));
             if (index != -1) {
-                ret = index;
                 System.out.println("查找成功");
+                System.out.println(costumes.get(index).toString());
             } else {
                 System.out.println("未找到该客户信息");
             }
         } else {
             System.out.println("退出查找");
         }
-        return ret;
+        return index;
     }
 
     private void sortCustomer() {
-        Arrays.sort(customerList.getCustomers(), Comparator.comparing(Customer::getId));
+//        Arrays.sort(customerList.getCustomers(), Comparator.comparing(Customer::getId));
+        costumes.sort(Comparator.comparing(Customer::getId));
     }
 
     private void showCustomer() {
@@ -154,11 +164,11 @@ public class CustomerView {
             Customer[] customers = customerList.getCustomers();
             for (Customer c : customers) {
                 System.out.println(c.getId() + "\t" +
-                        c.getName() + "\t" +
-                        c.getGender() + "\t" +
-                        c.getAge() + "\t" +
-                        c.getPhone() + "\t" +
-                        c.getEmail());
+                                   c.getName() + "\t" +
+                                   c.getGender() + "\t" +
+                                   c.getAge() + "\t" +
+                                   c.getPhone() + "\t" +
+                                   c.getEmail());
             }
         }
         System.out.println("------------------------\n");

@@ -1,11 +1,13 @@
 package com.customer.bean;
 
+import java.util.Objects;
+
 /**
- * @Description: JavaBean实体对象,封装客户信息
+ * @Description: JavaBean实体对象, 封装客户信息
  * @ClassName: Customer
  * @Author: QUANWEI
  * @Date: 2021/8/29 12:40
- * @Version: 1.0
+ * @Version: 2.0
  */
 
 public class Customer {
@@ -27,6 +29,10 @@ public class Customer {
         this.age = age;
         this.phone = phone;
         this.email = email;
+    }
+
+    public Customer(String id) {
+        this.id = id;
     }
 
     public String getId() {
@@ -75,5 +81,28 @@ public class Customer {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "\nid:\t" + getId() +
+               "\nname:\t" + getName() +
+               "\ngender:\t" + getGender() +
+               "\nage:\t" + getAge() +
+               "\nphone:\t" + getPhone() +
+               "\nemail:\t" + getEmail();
     }
 }

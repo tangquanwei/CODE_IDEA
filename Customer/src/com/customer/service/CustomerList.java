@@ -2,61 +2,47 @@ package com.customer.service;
 
 import com.customer.bean.Customer;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
- * @Description: Customer对象的管理模块,内部用数组管理一组Customer
+ * @Description: Customer对象的管理模块, 内部用数组管理一组Customer
  * @ClassName: CustomerList
  * @Author: QUANWEI
  * @Date: 2021/8/29 12:39
- * @Version: 1.0
+ * @Version: 2.0
  */
 
 public class CustomerList {
-    private final Customer[] customers;
-    private int total;//number of customers
-
-    public int getTotal() {
-        return total;
-    }
+    private final ArrayList<Customer> customers;
 
     public CustomerList(int total) {
-        customers = new Customer[total];
+        customers = new ArrayList<>(total);
+    }
+
+    public int getTotal() {
+        return customers.size();
     }
 
     public boolean addCustomer(Customer customer) {
-        if (total == customers.length)
-            return false;
-        customers[total++] = customer;
-        return true;
-    }
-
-    public boolean replaceCustomer(int index, Customer customer) {
-        if (index < 0 || index >= total) {
-            return false;
-        }
-        customers[index] = customer;
-        return true;
+        return customers.add(customer);
     }
 
     public boolean deleteCustomer(int index) {
-        if (index < 0 || index >= total) {
-            return false;
-        }
-        customers[index] = customers[total - 1];
-        customers[total - 1] = null;
-        --total;
-        return true;
+        return customers.remove(customers.get(index));
+    }
+
+    public boolean replaceCustomer(int index, Customer customer) {
+        return Collections.replaceAll(customers, customers.get(index), customer);
     }
 
     public Customer[] getCustomers() {
-        return Arrays.copyOf(customers, total);
+        Customer[] customersA = new Customer[customers.size()];
+        return customers.toArray(customersA);
     }
 
-    public Customer getCustomer(int index) {
-        if (index < 0 || index >= total) {
-            return null;
-        }
-        return customers[index];
+    public ArrayList<Customer> getCustomerArrayList() {
+        return customers;
     }
 }
+
