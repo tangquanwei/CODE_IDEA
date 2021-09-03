@@ -2,6 +2,7 @@ package com.customer.service;
 
 import com.customer.bean.Customer;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -15,10 +16,46 @@ import java.util.Collections;
 
 public class CustomerList {
     private final ArrayList<Customer> customers;
+    private final File file = new File("D:\\workspaceFolder\\CODE_IDEA\\Customer\\src\\data");
+
 
     public CustomerList(int total) {
         customers = new ArrayList<>(total);
     }
+
+    public CustomerList() {
+        customers = new ArrayList<>();
+
+        read();
+    }
+
+    private void read() {
+        Object object = null;
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            while ((object = ois.readObject()) != null) {
+                customers.add((Customer) object);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void save() {
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos); // 连接
+            for (Object c : customers) {
+                oos.writeObject(c);
+            }
+            oos.close();
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public int getTotal() {
         return customers.size();

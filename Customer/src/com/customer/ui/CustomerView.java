@@ -24,7 +24,7 @@ import java.util.Comparator;
  * @Version: 1.0
  */
 public class CustomerView {
-    private final CustomerList customerList = new CustomerList(10);
+    private final CustomerList customerList = new CustomerList();
     ArrayList<Customer> costumes=customerList.getCustomerArrayList();
 
     public void enterMainMenu() {
@@ -48,8 +48,10 @@ public class CustomerView {
             switch (choice) {
                 case 0 -> {
                     System.out.print("确定退出(Y/N)? : ");
-                    if (CMUtility.readChoice())
+                    if (CMUtility.readChoice()){
+                        customerList.save();
                         break lab_while;
+                    }
                 }
                 case 1 -> {
                     CMUtility.clearScreen();

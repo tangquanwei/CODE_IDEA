@@ -1,5 +1,6 @@
 package com.customer.bean;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Objects;
  * @Version: 2.0
  */
 
-public class Customer {
+public class Customer implements Serializable {
     private String id;
     private String name;
     private String gender;
