@@ -7,6 +7,7 @@ import com.team.model.Architect;
 import com.team.model.Designer;
 import com.team.model.Employee;
 import com.team.model.Programmer;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class TeamView {
     private final NameListService listService = new NameListService();
     private final TeamService teamService = new TeamService();
-
+    @Test
     public void enterMainMenu() {
         lab_loop:
         while (true) {

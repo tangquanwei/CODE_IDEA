@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="COS 126">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.lift/stdlib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.lift/introcs.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../Program Files/Java/jdk-16.0.1/lib" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="https://introcs.cs.princeton.edu/java/stdlib/javadoc" />
+      <root url="https://introcs.cs.princeton.edu/java/code/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/.lift/stdlib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.lift/introcs.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../Program Files/Java/jdk-16.0.1/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../../Program Files/Java/jdk-16.0.1/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../Program Files/Java/jdk-16.0.1/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>

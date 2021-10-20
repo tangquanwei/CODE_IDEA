@@ -26,7 +26,6 @@ import java.util.Comparator;
 public class CustomerView {
     private final CustomerList customerList = new CustomerList();
     ArrayList<Customer> costumes=customerList.getCustomerArrayList();
-
     public void enterMainMenu() {
         lab_while:
         while (true) {

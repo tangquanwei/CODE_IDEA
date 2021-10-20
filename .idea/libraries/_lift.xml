@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name=".lift">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/IntroCS/.lift/stdlib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/IntroCS/.lift/checkstyle-lift.jar!/" />
+      <root url="jar://$PROJECT_DIR$/IntroCS/.lift/introcs.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

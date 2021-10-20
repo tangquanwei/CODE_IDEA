@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HelloI18N/HelloI18N.iml" filepath="$PROJECT_DIR$/HelloI18N/HelloI18N.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HelloSwingNode/HelloSwingNode.iml" filepath="$PROJECT_DIR$/HelloSwingNode/HelloSwingNode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IssueTrackingBiDi/IssueTrackingBiDi.iml" filepath="$PROJECT_DIR$/IssueTrackingBiDi/IssueTrackingBiDi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IssueTrackingLite/IssueTrackingLite.iml" filepath="$PROJECT_DIR$/IssueTrackingLite/IssueTrackingLite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Login/Login.iml" filepath="$PROJECT_DIR$/Login/Login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UnlockCustom/UnlockCustom.iml" filepath="$PROJECT_DIR$/UnlockCustom/UnlockCustom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/javafx_scenebuilder_samples-2_0.iml" filepath="$PROJECT_DIR$/.idea/javafx_scenebuilder_samples-2_0.iml" />
+    </modules>
+  </component>
+</project>
